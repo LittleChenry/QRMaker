@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>个人中心|二维码生成平台</title>
+		<link type="text/css" rel="stylesheet" href="../usercenter/css/usercenter.css" >
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</head>
+<body>
+	<h1>个人中心</h1>
+	<p id="tuichu">欢迎，Admin！<a href="Logout.action">退出</a></p>
+	<nav>
+		<ul>
+			<li><a href="addproduct.html">增加商品类型</a></li>
+			<li><a href="addplanning.html">创建生产计划</a></li>
+			<li><a href="planningmanage.html">订单管理</a></li>
+			<li><a href="userinfo.html">个人信息</a></li>
+			<li><a href="passwordchange.html">密码修改</a></li>
+		</ul>
+	</nav>
+	<form action="AddProduct" method="post">
+		<div id="d">
+			<div class="tablerow">
+				<p>农药代码：</p>
+				<p><input type="text" name="code"></p>
+			</div>
+			<div class="tablerow">
+				<p>农药名称：</p>
+				<p>
+					<input type="text" name="type">
+				</p>
+			</div>
+			
+			<div class="tablerow">
+				<p>毒性代码：</p>
+				<p>
+					<select name="poison">
+					<option>请选择</option>
+					<option value="0">0：剧毒</option>
+					<option value="1">1：中度</option>
+					</select>
+				</p>
+			</div>
+			<div class="tablerow">
+				<p>环保代码：</p>
+				<p>
+					<select name="green">
+					<option>请选择</option>
+					<option value="0">0：不可降解</option>
+					<option value="1">1：可自然降解</option>
+					</select>
+				</p>
+			</div>
+			<div id="div" class="tablerow">
+				<p>农药成分：</p><input id="total" name="total" type="text" value="1" disabled="true"/>种
+				
+			</div>
+			
+			<div id="div_0" class="tablerow">
+				<p>成分:</p>
+				<p>
+				名称:<input id="01" type="text" name="text_0"/>
+				含量:<input id="02" type="text" name="num_0"/>
+				<input type="button" value="删除" id="input_0" onclick="del(0)"/>
+				</p>
+			</div>
+			
+		</div>
+		<p>
+			<input type="button" id="b" value="增加成分"/>
+		</p>
+		<div class="juzhong">
+			<button type="submit" name="addpro" class="buttons">添加</button>
+		</div>
+		
+	</form>
+</body>
+<script language="javascript">
+	i = 1;
+	document.getElementById("b").onclick=function(){
+		if(i < 6){
+			document.getElementById("d").innerHTML+='<div id="div_'+i+'" class="tablerow"><p>成分:</p><p> 名称:<input id='+i+'1 name="text_'+i+'" type="text" /> 含量:<input id='+i+'2 name="num_'+i+'" type="text" /> <input id="input_'+i+'" type="button" value="删除"  onclick="del('+i+')"/></p></div>';
+			i = i + 1;
+			var input=document.getElementById("total");
+			input.value=i;
+			}
+	}
+	function del(o){
+		document.getElementById("d").removeChild(document.getElementById("div_"+o));
+		i = i - 1;
+		var input = document.getElementById("total");
+		input.value=i;
+		j=o;
+		for(j=j+1;j<6;j++){
+			k=j-1;
+			var div = document.getElementById("div_"+j);
+			div.id="div_"+k;
+			var input = document.getElementById("input_"+j);
+			input.id="input_"+k;
+			input.setAttribute("onclick","del("+k+")");
+			var input = document.getElementById(j+"1");
+			input.name="text_"+k;
+			input.id=k+"1";
+			var input = document.getElementById(j+"2");
+			input.name="num_"+k;
+			input.id=k+"2";
+		}
+	}
+</script>
+</html>

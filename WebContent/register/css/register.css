@@ -1,0 +1,36 @@
+form {
+margin-left:auto;
+margin-right:auto;
+margin-top: 150px;
+max-width: 500px;
+min-width: 400px;
+background: #d4ecd6;
+padding: 25px 15px 25px 15px;
+font: Georgia, "Times New Roman", Times, serif;
+color: #1c1a19;
+text-shadow: 1px 1px 1px #FFF;
+border:1px solid #E4E4E4;
+}
+form h1 {
+font-size: 30px;
+padding: 0px 0px 10px 40px;
+display: block;
+border-bottom:none;
+margin: -10px -15px 30px -10px;;
+color: #1c1a19;
+}
+form div.juzhong{
+	text-align: end;
+	margin-top: 20px;
+}
+body{
+	background-image: url(../../img/index.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.buttons{
+	  background-color:#f9ac9c;
+	  }
+.buttons:hover{
+  background-color:#fb4a4a;
+}

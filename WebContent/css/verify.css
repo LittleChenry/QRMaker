@@ -1,0 +1,47 @@
+body {
+	background-color: #FFFFFF;
+}
+img {
+	float: left;
+}
+.head-right {
+	font-weight: 900;
+	color: #AEC919;
+	padding-left: 6px;
+}
+.login-panel {
+	padding-top:100px;
+	/*padding-left:40px;*/
+}
+.btn,.btn-small,input[type="button"] {
+	background-color: #EEEEEE;
+	border-radius: 4px;
+	height: 36px;
+	padding: 2px 7px 2px 7px;
+	color: blue;
+}
+.veryfy-adjust {
+	margin:auto;
+	width:60%;
+}
+
+.verify-button {
+	padding-left:194px;
+	padding-top:20px;
+}
+
+.verfy-title {
+	padding-left:84px;
+}
+
+.title {
+	padding-top:5px;
+}
+
+.img {
+	height:58px;
+}
+
+.verify-button {
+	width:70px;
+}

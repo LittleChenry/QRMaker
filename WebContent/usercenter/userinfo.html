@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	<title>个人中心|二维码生成平台</title>
+	<link type="text/css" rel="stylesheet" href="../css/index.css">
+	<link type="text/css" rel="stylesheet" href="css/usercenter.css" >
+	</head>
+	<body>
+	 <h1>个人中心</h1>
+	 <p id="tuichu">欢迎，Admin！<a href="Logout.action">退出</a></p>
+	<nav>
+	 <ul>
+	 	<li><a href="addproduct.html">增加商品类型</a></li>
+	 	<li><a href="addplanning.html">创建生产计划</a></li>
+	 	<li><a href="planningmanage.html">订单管理</a></li>
+	 	<li><a href="userinfo.html">个人信息</a></li>
+	 	<li><a href="passwordchange.html">密码修改</a></li>
+	 </ul> 
+	</nav>
+		<form>
+			<div class="tablerow">
+			 <p>用户名:</p>
+			 <p><input type="text" name="com_admin"></p>
+			</div>
+			<div class="tablerow">
+	          <p>公司名称：</p>
+	          <p><input type="text" name="com_name"></p>
+	         </div>
+			<div class="tablerow">   
+	          <p>企业代码：</p>
+	          <p><input type="text" name="com_code"></p>
+	          </div>
+			<div class="tablerow">  
+	           <p>邮箱：</p>
+	           <p><input type="email" name="com_email"></p>
+	          </div>  
+	          <div class="juzhong">
+			<button type="submit" name="edit" class="buttons">编辑</button>
+			<button type="submit" name="save" class="buttons">保存</button>
+			  </div> 
+			
+		</form>
+	</body>
+</html>

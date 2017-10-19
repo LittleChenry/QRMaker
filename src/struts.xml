@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Struts2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- Struts2配置文件的根元素 -->
+<struts>
+	<!-- 配置了系列常量 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	<package name="" extends="struts-default,json-default" namespace="">
+		<action name="Register" class="com.kesheng.QRMaker.action.RegisterAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="Login"
+			class="com.kesheng.QRMaker.action.LoginAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="Logout"
+			class="com.kesheng.QRMaker.action.LogoutAction">
+			<result name="success" type="redirect">login.html</result>
+		</action>
+		
+		<action name="CreateOrder"
+			class="com.kesheng.QRMaker.action.CreateOrderAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="ShowUserinfo"
+			class="com.kesheng.QRMaker.action.ShowUserinfoAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="ShowSpecification"
+			class="com.kesheng.QRMaker.action.ShowSpecificationAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="ShowFixedinfo"
+			class="com.kesheng.QRMaker.action.ShowFixedinfoAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="ChangePassword"
+			class="com.kesheng.QRMaker.action.ChangePasswordAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="Downloaded"
+			class="com.kesheng.QRMaker.action.DownloadedAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+		
+		<action name="ChangeInfo" class="com.kesheng.QRMaker.action.ChangeInfoAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+
+		<action name="OldOrder" class="com.kesheng.QRMaker.action.OldOrderAction" >
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+
+		<action name="ShowType" class="com.kesheng.QRMaker.action.ShowTypeAction" >
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+
+		<action name="ShowInfo" class="com.kesheng.QRMaker.action.ShowInfoAction" >
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+
+		<action name="ShowPlan" class="com.kesheng.QRMaker.action.ShowPlanAction" >
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+
+		<action name="Path"
+			class="com.kesheng.QRMaker.action.PathAction">
+			<result name="fail"></result>
+	        <result type="json">
+				<param name="root">result</param>
+	        </result>
+		</action>
+	</package>
+</struts>

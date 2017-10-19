@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="com.kesheng.QRMaker.domain">
+	<class name="ProductType" table="tb_type"
+		discriminator-value="1">
+		<!-- 使用只读缓存 -->
+		<!-- <cache usage="read-only"/> -->
+		<!-- 映射标识属性 -->
+		<id	name="autoid" type="integer" column="AUTO_ID" >
+			<!-- 指定使用increment主键生成策略 -->
+			<generator class="increment"/>
+		</id>
+		
+		<!-- 映射普通属性 -->
+		<property name="id" column="ID"	type="integer" unique="true"/>
+		<property name="life" column="QGP"	type="string" length="20" />
+		<property name="type" column="TYPE" type="string" length="20"/>
+		
+		<!-- 映射和Specification之间的关联关系 -->
+		<many-to-one name="specification" column="SPECIFICATION_ID" class="Specification" 
+			property-ref="id"/>
+			
+		<!-- 映射和Company之间的关联关系 -->
+		<many-to-one name="company" column="COMPANY_ID" class="Company" 
+			not-null="true" property-ref="id"/>
+			
+		<!-- 映射和Pesticide之间的关联关系 -->
+		<many-to-one name="pesticide" column="PESTICIDE_ID" class="Pesticide" 
+			not-null="true" property-ref="id"/>
+
+	</class>
+</hibernate-mapping>

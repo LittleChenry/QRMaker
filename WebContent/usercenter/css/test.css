@@ -1,0 +1,39 @@
+ul,ol,li{list-style:none;padding:0px;margin:0px;} 
+#menu *{line-height:30px;} 
+#menu a{ 
+text-decoration:none; 
+display:block; 
+} 
+#menu ul{ 
+text-align:left; 
+background:#333; 
+} 
+#menu .arrow{ /* 菜单项的右侧小箭头 */ 
+float:right; 
+padding-right:5px; 
+} 
+#menu>ul{height:30px;} /* 即使没有菜单项也能保持顶级菜单栏的高度。 */ 
+/* 一级菜单 */ 
+#menu>ul>li{ 
+text-align:center; 
+display:inline-block; 
+width:80px; 
+} 
+#menu>ul>li>a{color:#fff;} 
+#menu>ul>li:hover{background:#666;} 
+/* 下拉的菜单栏 */ 
+#menu>ul>li ul{ 
+display:none; 
+width:150px; 
+position:absolute; 
+background:#c1cd94; 
+box-shadow:2px 2px 2px #000; 
+-webkit-box-shadow:2px 2px 2px #000; 
+-moz-box-shadow:2px 2px 2px #123; 
+} 
+/* 下拉菜单的菜单项 */ 
+#menu>ul>li>ul li{padding-left:5px; position:relative;} 
+#menu>ul>li>ul li>a{color:#000;} 
+#menu>ul>li>ul li:hover{background:#d3dbb3;} 
+/* 三级及以下的菜单项的定位 */ 
+#menu>ul>li>ul>li ul{left:150px; top:0px;} 

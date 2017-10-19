@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Spring配置文件的Schema信息 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 定义数据源Bean，使用C3P0数据源实现 -->
+	<!-- 设置连接数据库的驱动、URL、用户名、密码
+		连接池最大连接数、最小连接数、初始连接数等参数 -->
+	<!-- p:user="keshengmanager" -->
+	<!-- p:password="KeShEnG!2016MaNaGeR" -->
+	<!-- p:jdbcUrl="jdbc:mysql://180.209.64.33:3306/db_kesheng_web" -->
+	<!-- p:jdbcUrl="jdbc:mysql://localhost:3306/qrmaker" -->
+	<!-- p:jdbcUrl="jdbc:mysql://localhost:3306/db_kesheng_web?useUnicode=true&amp;characterEncoding=UTF-8" -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close"
+		p:driverClass="com.mysql.jdbc.Driver"
+		p:jdbcUrl="jdbc:mysql://180.209.64.33:3306/db_kesheng_web?useUnicode=true&amp;characterEncoding=UTF-8"
+		p:user="keshengmanager"
+		p:password="KeShEnG!2016MaNaGeR"
+		p:maxPoolSize="40"
+		p:minPoolSize="1"
+		p:initialPoolSize="1"
+		p:maxIdleTime="20"/>
+
+	<!-- 定义Hibernate的SessionFactory -->
+	<!-- 依赖注入数据源，注入正是上面定义的dataSource -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<!-- mappingResouces属性用来列出全部映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<!-- 以下用来列出Hibernate映射文件 -->
+				<value>com/kesheng/QRMaker/domain/Company.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/Product.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/ProductType.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/Plan.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/Box.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/Specification.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/Pesticide.hbm.xml</value>
+				<value>com/kesheng/QRMaker/domain/FixedInfo.hbm.xml</value>
+			</list>
+		</property>
+		<!-- 定义Hibernate的SessionFactory的属性 -->
+		<property name="hibernateProperties">
+			<!-- 指定数据库方言、是否自动建表
+				是否生成SQL语句等 	-->
+			<value>
+			hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+			hibernate.hbm2ddl.auto=update
+			hibernate.show_sql=true
+			hibernate.format_sql=true
+			#开启二级缓存
+			hibernate.cache.use_second_level_cache=true
+			#设置二级缓存的提供者
+			hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+			</value>
+		</property>
+	</bean>
+
+	    <!-- 定义HibernateTemplate -->  
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">  
+        <property name="sessionFactory">  
+            <ref bean="sessionFactory"/>      <!--注入SessionFactory实例对象-->  
+        </property>  
+    </bean>  
+      
+    <!-- 定义HibernateTransactionManager -->
+    <bean id="hibernateTransactionManager"  
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">  
+        <property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  <!--注入SessionFactory实例对象-->  
+        </property>  
+    </bean>  
+      
+    <!--装配数据访问层-->  
+    <bean id="companyDaoTarget" class="com.kesheng.QRMaker.dao.impl.CompanyDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="boxDaoTarget" class="com.kesheng.QRMaker.dao.impl.BoxDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="pesticideDaoTarget" class="com.kesheng.QRMaker.dao.impl.PesticideDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="planDaoTarget" class="com.kesheng.QRMaker.dao.impl.PlanDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="productDaoTarget" class="com.kesheng.QRMaker.dao.impl.ProductDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="producttypeDaoTarget" class="com.kesheng.QRMaker.dao.impl.ProductTypeDaoHibernate">  
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="specificationDaoTarget" class="com.kesheng.QRMaker.dao.impl.SpecificationDaoHibernate">
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+    <bean id="fixedinfoDaoTarget" class="com.kesheng.QRMaker.dao.impl.FixedInfoDaoHibernate">
+        <property name="hibernateTemplate">  
+            <ref bean="hibernateTemplate"/>   <!--注入HibernateTemplate -->  
+        </property>  
+    </bean>
+      
+    <!-- 为事务代理bean注入事务管理器-->  
+    <bean id="companyDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="companyDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="boxDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="boxDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="pesticideDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="pesticideDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="fixedinfoDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="fixedinfoDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="planDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="planDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="productDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="productDaoTarget"/>  
+        </property>
+    </bean>
+    <bean id="producttypeDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="producttypeDaoTarget"/>  
+        </property>  
+    </bean>
+    <bean id="specificationDao"  
+         class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">  
+        <property name="transactionManager">  
+            <ref bean="hibernateTransactionManager"/>  
+        </property>  
+        <property name="transactionAttributes"><!-- 设置事务属性 -->  
+            <props>  
+            <!-- 所有的方法，采用required的事务策略 -->  
+            <prop key="*">PROPAGATION_REQUIRED</prop>  
+            </props>  
+        </property>  
+        <property name="target"><!--为事务代理bean设置目标bean -->  
+            <ref bean="specificationDaoTarget"/>  
+        </property>  
+    </bean>  
+      
+    <!--注入DAO层-->  
+    <bean id="user" class="com.kesheng.QRMaker.service.impl.UserImpl">  
+        <property name="companyDao" ref="companyDao"></property>
+        <property name="pesticideDao" ref="pesticideDao"></property>
+        <property name="planDao" ref="planDao"></property>
+        <property name="producttypeDao" ref="producttypeDao"></property>
+        <property name="specificationDao" ref="specificationDao"></property>
+        <property name="fixedinfoDao" ref="fixedinfoDao"></property>
+        <property name="boxDao" ref="boxDao"></property>
+        <property name="productDao" ref="productDao"></property>
+    </bean>
+
+    <!--注入业务逻辑层-->
+    <bean id="userRegister" class="com.kesheng.QRMaker.action.RegisterAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userLogin" class="com.kesheng.QRMaker.action.LoginAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userLogout" class="com.kesheng.QRMaker.action.LogoutAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userCreateOrder" class="com.kesheng.QRMaker.action.CreateOrderAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userChangePassword" class="com.kesheng.QRMaker.action.ChangePasswordAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userChangeInfo" class="com.kesheng.QRMaker.action.ChangeInfoAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userShowInfo" class="com.kesheng.QRMaker.action.ChangeShowAction" scope="prototype">
+        <property name="userService" ref="userService"></property>  
+    </bean>
+    <bean id="userShowSpecification" class="com.kesheng.QRMaker.action.ShowSpecificationAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userShowPlan" class="com.kesheng.QRMaker.action.ShowPlanAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userCreateQRPicture" class="com.kesheng.QRMaker.action.CreateQRPictureAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userShowType" class="com.kesheng.QRMaker.action.ShowTypeAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userOldOrder" class="com.kesheng.QRMaker.action.OldOrderAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userShowUserinfo" class="com.kesheng.QRMaker.action.ShowUserinfoAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userShowFixedinfo" class="com.kesheng.QRMaker.action.ShowFixedinfoAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userPath" class="com.kesheng.QRMaker.action.PathAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+    <bean id="userDownloaded" class="com.kesheng.QRMaker.action.DownloadedAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+</beans>

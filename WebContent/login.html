@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>二维码生成平台</title>
+
+    <!-- Bootstrap Core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- MetisMenu CSS -->
+	<link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="dist/css/sb-admin-2.css" rel="stylesheet">
+	
+	<!-- Custom Fonts -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/login.css" rel="stylesheet" type="text/css">
+	<link href="css/adapt.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<canvas id="canvas"></canvas>
+	<div id="header" class="login-header">
+		<div class="login-title">
+			<img class="pic-title" src="img/logo.png"><img class="pic-title" src="img/head.png">
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="page">
+			<div class="login-panel-content">
+				<div class="ajust-login-panel login-panel panel panel-default">
+					<div class="panel-heading">
+						<h2 class="ajust-panel-title panel-title">用户登录</h2>
+					</div>
+						<div class="ajust-panel-body panel-body">
+							<form id="login_form" role="form">
+								<fieldset>
+								<div class="form-group">
+									<input id="login_admin" class="form-control" placeholder="用户名" name="admin" type="text" autocomplete="off" autofocus>
+								</div>
+								<div class="form-group">
+									<input id="login_password" class="form-control" placeholder="密码" name="password" type="password" autocomplete="off">
+								</div>
+								<div class="checkbox">
+									<label>
+										<input name="remember" type="checkbox" value="Remember Me">记住我
+									</label>
+								</div>
+								
+								<!-- Change this to a button or input when using this as a form -->
+								<input id="login_submit" type="button" value="登录" class="btn btn-lg btn-success btn-block" />
+								<a href="#" data-toggle="modal" data-target="#resign">新用户注册</a>
+							</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!-- 新用户注册，模态框 -->
+	<div class="modal" id="resign">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close form-horizontal" data-dismiss="modal"><span>&times;</span></button>
+					<h3 class="modal-title">新用户注册</h3>
+				</div>
+				<div class="modal-body">
+					<form id="register_form" role="form">
+					<fieldset>
+						<div class="form-group">
+						    <label class="col-sm-3 control-label" for="admin">用户名：</label>
+						    <div class="col-sm-6">
+                            	<input id="register_admin" type="text" class="form-control" placeholder="字母与数字组合，至少6位" name="admin" autocomplete="off" autofocus>
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_admin_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="id">公司代码：</label>
+						    <div class="col-sm-6">
+								<input id="register_id" class="form-control"  placeholder="五位数字" name="id" type="text" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_id_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="name">公司名称：</label>
+						    <div class="col-sm-6">
+								<input id="register_name" class="form-control"  placeholder="请填写公司注册名称" name="name" type="text" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_name_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label class="col-sm-3 control-label" for="code">政府注册号：</label>
+						    <div class="col-sm-6">
+								<input id="register_code" class="form-control" placeholder="企业政府注册代码" name="code" type="text" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_code_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+						<label class="col-sm-3 control-label" for="email">邮箱：</label>
+						    <div class="col-sm-6">
+								<input id="register_email" class="form-control" placeholder="账号审核通过会以邮件的形式通知您" name="email" type="email" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_email_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+						<label class="col-sm-3 control-label" for="password">设置密码：</label>
+							<div class="col-sm-6">
+								<input id="register_password" class="form-control" placeholder="字母与数字组合，至少8位" name="password" type="password" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_password_span" style="color:red"></span>
+							</div>
+						</div>
+						<div class="form-group">
+						<label class="col-sm-3 control-label" for="password2">确认密码：</label>
+						    <div class="col-sm-6">
+							<input id="register_password2" class="form-control" placeholder="两次密码输入必须一致" name="password2" type="password" autocomplete="off">
+							</div>
+							<div class="col-sm-3">
+								<span class="register_span" id="register_password2_span" style="color:red"></span>
+							</div>
+						</div>
+					</fieldset>
+					<div>
+						<input id="register_submit" type="button" value="注册" class="btn btn-lg btn-success btn-block" disabled="disabled">
+					</div>
+					</form>	
+				</div>
+			</div>
+		</div>                           	
+	</div>
+	<div id="login-foot">
+		<footer class="login-footer" id="lfooter">&copy;copyright by Priscilla</footer>
+	</div>
+	
+	<!-- jQuery -->
+	
+	<script src="vendor/jquery/jquery.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="vendor/metisMenu/metisMenu.min.js"></script>
+	
+	<!-- Custom Theme JavaScript -->
+	<script src="dist/js/sb-admin-2.js"></script>
+	<script src="js/myjs.js"></script>
+	<script src="js/test2.js"></script>
+
+</body>
+
+</html>

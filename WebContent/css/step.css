@@ -1,0 +1,130 @@
+.line {
+	height: 120px;
+    position: relative;
+    padding-top: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom:18px;
+}
+
+.stepactivefirst {
+	background: url(../img/../img/stepactivefirst.png) no-repeat;
+	color: #ffffff;
+	font-size: 19px;
+	font-weight:500;
+	padding-top:4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align:center;
+    width:20%;
+    height: 35px;
+    z-index:1;
+}
+
+.stepactivemid {
+	background: url(../img/../img/stepactivemid.png) no-repeat;
+	color: #ffffff;
+	font-size: 19px;
+	font-weight:500;
+	padding-top:4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align:center;
+    width:20%;
+    height: 35px;
+    z-index:1;
+}
+
+.stepactivelast {
+	background: url(../img/../img/stepactivelast.png) no-repeat;
+	color: #ffffff;
+	font-size: 19px;
+	font-weight:500;
+	padding-top:4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align:center;
+    width:20%;
+    height: 35px;
+    z-index:1;
+}
+
+.stepinactivemid {
+	background: url(../img/../img/stepinactivemid.png) no-repeat;
+	color: #ffffff;
+	font-size: 19px;
+	font-weight:500;
+	font-weight: normal;
+	padding-top:4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align:center;
+    width:20%;
+    height: 35px;
+}
+
+.stepinactivelast {
+	background: url(../img/../img/stepinactivelast.png) no-repeat;
+	color: #ffffff;
+	font-size: 19px;
+	font-weight:500;
+	font-weight: normal;
+	padding-top:4px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align:center;
+    width:20%;
+    height: 35px;
+}
+
+.step-img-inactive {
+	margin-left:-9px;
+}
+
+.stepfont {
+	font-style:normal;
+}
+
+.stepfontactive {
+	font-style:normal;
+}
+
+.btnarea {
+	padding-top: 40px;
+	padding-bottom: 70px;
+	padding-left: 220px;
+	width: 58%;
+}
+
+.btnarea-single {
+	padding-top: 40px;
+	padding-bottom: 70px;
+	padding-left: 325px;
+	width: 58%;
+}
+
+.btnarea-final {
+	padding-top: 10px;
+	padding-bottom: 100px;
+	padding-left: 45px;
+	width: 60%;
+}
+
+.btnarea-text {
+	padding-top: 40px;
+	padding-bottom: 70px;
+	padding-left: 30px;
+	width: 60%;
+}
+
+.btnicon {
+	padding-left: 0px;
+}
+
+.btnprearea {
+	width: 50%;
+}
+
+.btnnextarea {
+	width: 50%;
+}

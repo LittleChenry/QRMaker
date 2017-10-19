@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Spring配置文件的Schema信息 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- 配置DAO组件的模板 -->
+	<bean id="daoTemplate" abstract="true" lazy-init="true"
+		p:sessionFactory-ref="sessionFactory"/>
+
+	<bean id="companyDao"
+		class="com.kesheng.QRMaker.dao.impl.CompanyDaoHibernate"
+		parent="daoTemplate"/>
+
+	<bean id="productDao"
+		class="com.kesheng.QRMaker.dao.impl.ProductDaoHibernate"
+		parent="daoTemplate"/>
+
+	<bean id="planDao"
+		class="com.kesheng.QRMaker.dao.impl.PlanDaoHibernate"
+		parent="daoTemplate"/>
+
+	<bean id="producttypeDao"
+		class="com.kesheng.QRMaker.dao.impl.ProductTypeDaoHibernate"
+		parent="daoTemplate"/>
+
+	<bean id="boxDao"
+		class="com.kesheng.QRMaker.dao.impl.BoxDaoHibernate"
+		parent="daoTemplate"/>
+		
+	<bean id="pesticideDao"
+		class="com.kesheng.QRMaker.dao.impl.PesticideDaoHibernate"
+		parent="daoTemplate"/>
+		
+	<bean id="fixedinfoDao"
+		class="com.kesheng.QRMaker.dao.impl.FixedInfoDaoHibernate"
+		parent="daoTemplate"/>
+	
+	<bean id="specificationDao"
+		class="com.kesheng.QRMaker.dao.impl.SpecificationDaoHibernate"
+		parent="daoTemplate"/>
+
+</beans>

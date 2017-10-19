@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="com.kesheng.QRMaker.domain">
+	<class name="Pesticide" table="tb_pesticide"
+		discriminator-value="1">
+		<!-- 使用只读缓存 -->
+		<!-- <cache usage="read-only"/> -->
+		<!-- 映射标识属性 -->
+		<id	name="autoid" type="integer" column="auto_id" >
+			<!-- 指定使用increment主键生成策略 -->
+			<generator class="increment"/>
+		</id>
+		
+		<!-- 映射普通属性 -->
+		<property name="id" column="id"	type="integer" unique="true"
+			not-null="true" />
+		<property name="name" column="name" type="string" length="50"/>
+		<property name="num" column="num" type="string" length="50"/>
+		<property name="described" column="described" type="string" length="100"/>
+		<property name="solution" column="solution" type="string" length="100"/>
+		<property name="usage" column="usage" type="string" length="200"/>
+		<property name="toxic" column="toxic" type="string" length="5"/>
+		<property name="environment" column="environment" type="integer"/>
+		
+	</class>
+</hibernate-mapping>

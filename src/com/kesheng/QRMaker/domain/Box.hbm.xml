@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="com.kesheng.QRMaker.domain">
+	<class name="Box" table="tb_box"
+		discriminator-value="1">
+		<!-- 使用只读缓存 -->
+		<!-- <cache usage="read-only"/> -->
+		<!-- 映射标识属性 -->
+		<id	name="autoid" type="long" column="AUTO_ID" >
+			<!-- 指定使用increment主键生成策略 -->
+			<generator class="increment"/>
+		</id>
+		
+		<!-- 映射普通属性 -->
+		<property name="id" column="ID"	type="long" unique="true"/>
+		<property name="capacity" column="CAPACITY"	type="string" length="20" />
+		<property name="planid" column="PICI_ID" type="integer"/>
+		<property name="companyid" column="COMPANY_ID" type="integer"/>
+		
+	</class>
+</hibernate-mapping>

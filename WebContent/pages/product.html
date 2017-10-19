@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>二维码生成平台</title>
+	
+	<!-- Bootstrap Core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- MetisMenu CSS -->
+	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	
+	<!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+	
+	<!-- Custom Fonts -->
+	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../css/setting.css">
+	
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+	
+	<!-- 分步样式 -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/step.css">
+	<link href="../css/adapt.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav id="top" class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="navbar-header">
+				<div id="header">
+					<a href="addorder.html"><img class="pic-title" src="../img/logo.png"><img class="pic-title" src="../img/head.png"></a>
+				</div>
+			</div>
+			<ul class="nav navbar-top-links navbar-right hmenu">
+				<li class="dropdown hmenu">
+				<a class="userlogo dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-user">
+				<li><a href="../Logout.action"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+				</li>
+				</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+	<!-- Page Content -->
+	<div id="page-wrapper">
+		<div class="content">
+			<div class="content-left">
+				<div class="content-left-list navbar-default sidebar" role="navigation" id="side-menu">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav">
+							<li>
+								<a href="addorder.html"><i class="fa fa-edit fa-fw"></i> 生成二维码</a>
+							</li>
+							<li>
+								<a href="historyorder.html"><i class="glyphicon glyphicon-th-list"></i> 历史二维码记录</a>
+							</li> 
+							<li>
+								<a href="questions.html"><i class="glyphicon glyphicon-question-sign"></i> 常见问题与反馈</a>
+							</li>
+							<li>
+								<a href="#"><i class="glyphicon glyphicon-wrench"></i> 用户信息设置<span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="product.html"> 农药生产信息</a>
+									</li>
+									<li>
+										<a href="userinfo.html"> 账号信息</a>
+									</li>  
+								</ul>
+							</li> 
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="content-right">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="pagetitle">
+								<div class="page-header-list">
+									<a id="a-pesticide" class="list-selected page-header-list-a" href="javascript:;">农药字典</a>
+									<a id="a-type" class="page-header-list-a" href="javascript:;">生产剂型</a>
+									<a id="a-plan" class="page-header-list-a" href="javascript:;">生产计划</a>
+									<a id="a-fixedinfo" class="page-header-list-a" href="javascript:;">常用信息</a>
+								</div>
+							</div>
+	                    </div>
+						<div class="content-right-main col-sm-12">
+							<div class="order-record">
+								<div class="row">
+					                <div class="col-lg-12">
+					                    <div class="panel-adjust panel panel-default">
+					                    	<div id="content-pesticide" style="display: block;">
+						                        <div class="panel-body">
+						                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-pesticide">
+						                                <thead>
+						                                    <tr>
+						                                        <th>编号</th>
+						                                        <th>农药名称</th>
+						                                        <th>毒性</th>
+						                                        <th>环保标志</th>
+						                                        <th>农药信息</th>
+						                                        <th>中毒解救</th>
+						                                        <th>用法</th>
+						                                    </tr>
+						                                </thead>
+						                                <tbody id="tb_pesticide">
+						                                </tbody>
+						                            </table>
+						                        </div>
+					                        </div>
+					                        <div id="content-type" style="display: none;">
+						                        <div class="panel-body">
+						                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-type">
+						                                <thead>
+						                                    <tr>
+						                                        <th>序号</th>
+						                                        <th>生产农药名</th>
+						                                        <th>生产剂型</th>
+						                                        <th>保质期</th>
+						                                        <th>规格</th>
+						                                        <th>操作</th>
+						                                    </tr>
+						                                </thead>
+						                                <tbody id="tb_type">
+						                                </tbody>
+						                            </table>
+						                        </div>
+					                        </div>
+					                        <div id="content-plan" style="display: none;">
+						                        <div class="panel-body">
+						                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-plan">
+						                                <thead>
+						                                    <tr>
+						                                        <th>生产计划</th>
+						                                        <th>所属生产剂型</th>
+						                                        <th>箱码数量</th>
+						                                        <th>瓶码数量</th>
+						                                        <th>操作</th>
+						                                    </tr>
+						                                </thead>
+						                                <tbody id="tb_plan">
+						                                </tbody>
+						                            </table>
+						                        </div>
+					                        </div>
+					                        <div id="content-fixedinfo" style="display: none;">
+						                        <div class="panel-body">
+						                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-fixedinfo">
+						                                <thead>
+						                                    <tr>
+						                                        <th>查询链接</th>
+						                                        <th>网页链接</th>
+						                                        <th>操作</th>
+						                                    </tr>
+						                                </thead>
+						                                <tbody id="tb_fixedinfo">
+						                                </tbody>
+						                            </table>
+						                        </div>
+					                        </div>
+					                        <!-- /.panel-body -->
+					                    </div>
+					                    <!-- /.panel -->
+					                </div>
+                					<!-- /.col-lg-12 -->
+            					</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="add-type">
+		<div class="modal-dialog">
+			<div class="add-content modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h3 class="modal-title">农药生产剂型</h3>
+				</div>
+				<div class="modal-body">
+					<form id="create_form" role="form">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="plan_name">农药名称：</label>
+								<div class="col-sm-9">
+									<input type="text" name="name" id="confirm_name" class="form-control" >
+								</div>
+							</div>
+						</fieldset>
+					</form> 
+				</div>
+			</div>
+		</div> 
+	</div>
+	<div class="modal" id="add-plan">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="add-content modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h3 class="modal-title">农药生产计划</h3>
+				</div>
+				<div class="modal-body">
+					<form id="create_form" role="form">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">农药名称：</label>
+								<div class="col-sm-9">
+									<input type="text" name="name" id="confirm_name" class="form-control" >
+								</div>
+							</div>
+						</fieldset>
+					</form> 
+				</div>
+			</div>
+		</div> 
+	</div>
+	<div class="modal" id="add-fixedinfo">
+		<div class="modal-dialog">
+			<div class="add-content modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal"><span>&times;</span></button>
+					<h3 class="modal-title">常用信息</h3>
+				</div>
+				<div class="modal-body">
+					<form id="create_form" role="form">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">查询链接：</label>
+								<div class="col-sm-9">
+									<textarea name="fixedtext" id="fixedtext" class="form-control" ></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">网页链接：</label>
+								<div class="col-sm-9">
+									<textarea name="pagepath" id="pagepath" class="form-control" ></textarea>
+								</div>
+							</div>
+							<div class="btnconfirm col-sm-12">
+								<div class="form-group col-sm-6">
+									<button id="fixedinfo-reset" type="reset" class="btn btn-primary"><i class="icon-reply"></i> 重置</button>
+								</div>
+								<div class="form-group col-sm-6">
+									<button id="fixedinfo-save" type="button" class="btn btn-primary"><i class=" icon-save"></i> 保存</button>
+								</div>
+							</div>
+						</fieldset>
+					</form> 
+				</div>
+			</div>
+		</div> 
+	</div>
+	<div class="foot">
+		<footer class="ajust-lfooter" id="lfooter">&copy;copyright by Priscilla</footer>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+	
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+	
+	<!-- Custom Theme JavaScript -->
+	<script src="../dist/js/sb-admin-2.js"></script>
+	<!-- 分步订单 -->
+	<script src="../js/scripts.js"></script>
+	<script src="../js/jquery.backstretch.min.js"></script>
+	<script src="../js/switch.js"></script>
+	<script src="../js/product.js"></script>
+	<script>
+    /* $(document).ready(function() {
+        $('#dataTables-pesticide').DataTable({
+            responsive: true
+        });
+        $('#dataTables-type').DataTable({
+            responsive: true
+        });
+        $('#dataTables-plan').DataTable({
+            responsive: true
+        });
+    }); */
+    </script>
+</body>
+
+</html>

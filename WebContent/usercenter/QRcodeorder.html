@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	<title>二维码订单|二维码生成平台</title>
+	<link type="text/css" rel="stylesheet" href="../css/index.css">
+	<link type="text/css" rel="stylesheet" href="css/usercenter.css" >
+	</head>
+	<body>
+	 <h1>二维码订单预览</h1>
+	 
+	 <form>
+	 	<div class="tablerow">
+	 	 <p>企业代码：</p>
+	 	 <p><input type="text" name="com_code"></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>商品代码：</p>
+	 	 <p><input type="text" name="pro_code"></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>毒性：</p>
+	 	 <p><input type="text" name="pro_poison"></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>环保：</p>
+	 	 <p><input type="text" name="pro_green"></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>商品类型：</p>
+	 	 <p><select name="pro_id">
+	 		<option value="pid1">种类1</option>
+	 		<option value="pid2">种类2</option>
+	 		<option value="pid3">种类3</option>
+	 	</select></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>包装类型：</p>
+	 	 <p><select name="plan_type">
+	 		<option value="ptype1">瓶装</option>
+	 		<option value="ptype2">袋装</option>
+	 	</select></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>容量规格：</p>
+	 	 <p><select name="plan_norm">
+	 		<option value="pnorm1">50ml</option>
+	 		<option value="pnorm2">120ml</option>
+	 		<option value="pnorm3">200ml</option>
+	 		<option value="pnorm4">250ml</option>
+	 	</select></p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>计划产量：</p>
+	 	 <p><input type="text" name="plan_yield">万</p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>包装箱容量：</p>
+	 	 <p><input type="text" name="plan_packagenum">/箱</p>
+	 	</div>
+	 	<div class="tablerow">
+	 	 <p>计划生产日期：</p>
+	 	 <p><input type="date" name="planningdate"></p>
+	 	</div>
+	 	<div class="juzhong">
+	 	
+	 	<button type="button" name="lingcun" class="buttons">生成</button>
+	 	<button type="button" name="cancel" class="buttons">取消</button>
+	 	</div>
+	 </form>
+	</body>
+</html>
