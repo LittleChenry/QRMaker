@@ -10,16 +10,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import com.google.zxing.EncodeHintType;
 import com.kesheng.QRMaker.domain.*;
 import com.kesheng.QRMaker.service.impl.UserImpl;
 import com.kesheng.QRMaker.util.CreatePictures;
 import com.kesheng.QRMaker.util.FileToZip;
+import com.kesheng.QRMaker.util.PropertiesUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONObject;
-
 
 public class CreateOrderAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -204,16 +207,10 @@ public class CreateOrderAction extends ActionSupport {
 				font.getStringBounds(idexample, new FontRenderContext(AffineTransform.getScaleInstance(1, 1),false,false));
 		int maxwidth = (int)Math.round(idr.getWidth());
 		int numheight = (int)Math.round(idr.getHeight());
-		System.out.println(1);
-		//ActionContext ctx = ActionContext.getContext();
-		//HttpServletRequest request = (HttpServletRequest)ctx.get(ServletActionContext.HTTP_REQUEST);
-		//System.out.println(2);
-		//String path = request.getRequestURL().toString();
-		//String home = path.replace("CreateOrder.action", "");
+
+		String path = PropertiesUtil.getPropertiesUtil().readValue("savepath");
+		System.out.println("path:" + path);
 		
-		//System.out.println(home);
-		//String path = "E:/njupt/apache-tomcat-7.0.56/webapps/QRMaker/";
-		String path = "F:/workspace/QRMaker/WebContent/";
 		String fileroot = path+"tempfiles"+File.separator +company.getId()+File.separator +pesticide.getId()
 			+File.separator +producttype.getId()+File.separator +plan.getId();
 		String filepictures = fileroot+File.separator +"qrpictures";
@@ -221,9 +218,9 @@ public class CreateOrderAction extends ActionSupport {
 		String pdffileroot = fileroot+File.separator +"pdffile";
 		String filename = company.getId()+" "+pesticide.getId() +" "+producttype.getId()+" "+plan.getId();
 		long maxbx = user.getBoxDao().findMaxId().get(0).getId();
-		System.out.println(2+" "+maxbx);
+
 		long maxbt = user.getProductDao().findMaxId().get(0).getId();
-		System.out.println(3+" "+maxbt);
+
 		CreatePictures cp = new CreatePictures(maxbt, maxbx, width, height, fixedtext, pagepath, font,
 				filepictures, btnum, bxnum,pre12id);
 		BufferedImage fixedtextimg = cp.fixedtextImg(maxwidth, numheight);
