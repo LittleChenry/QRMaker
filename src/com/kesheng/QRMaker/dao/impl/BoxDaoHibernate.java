@@ -18,7 +18,7 @@ public class BoxDaoHibernate extends HibernateDaoSupport implements BoxDao {
 	@Override
 	public long save(Box box) {
 		// TODO Auto-generated method stub
-		return (long)getHibernateTemplate().save(box);
+		return (Integer)getHibernateTemplate().save(box);
 	}
 
 	@Override

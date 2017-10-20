@@ -19,7 +19,7 @@ public class SpecificationDaoHibernate extends HibernateDaoSupport implements Sp
 	@Override
 	public int save(Specification specification) {
 		// TODO Auto-generated method stub
-		return (int)getHibernateTemplate().save(specification);
+		return (Integer)getHibernateTemplate().save(specification);
 	}
 
 	@Override

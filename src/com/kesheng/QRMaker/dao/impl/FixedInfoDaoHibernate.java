@@ -18,7 +18,7 @@ public class FixedInfoDaoHibernate extends HibernateDaoSupport implements FixedI
 	@Override
 	public int save(FixedInfo fixedinfo) {
 		// TODO Auto-generated method stub
-		return (int) getHibernateTemplate().save(fixedinfo);
+		return (Integer) getHibernateTemplate().save(fixedinfo);
 	}
 
 	@Override

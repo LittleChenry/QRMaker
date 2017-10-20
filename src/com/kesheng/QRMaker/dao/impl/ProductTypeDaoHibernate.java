@@ -18,7 +18,7 @@ public class ProductTypeDaoHibernate extends HibernateDaoSupport implements Prod
 	@Override
 	public int save(ProductType producttype) {
 		// TODO Auto-generated method stub
-		return (int) getHibernateTemplate().save(producttype);
+		return (Integer) getHibernateTemplate().save(producttype);
 	}
 
 	@Override

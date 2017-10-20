@@ -13,7 +13,7 @@ public class PlanDaoHibernate extends HibernateDaoSupport implements PlanDao {
 	}
 	
 	public int save(Plan plan) {
-		return (int)getHibernateTemplate().save(plan);
+		return (Integer)getHibernateTemplate().save(plan);
 	}
 	
 	public void update(Plan plan) {

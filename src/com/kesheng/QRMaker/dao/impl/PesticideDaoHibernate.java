@@ -18,7 +18,7 @@ public class PesticideDaoHibernate extends HibernateDaoSupport implements Pestic
 	@Override
 	public int save(Pesticide pesticide) {
 		// TODO Auto-generated method stub
-		return (int)getHibernateTemplate().save(pesticide);
+		return (Integer)getHibernateTemplate().save(pesticide);
 	}
 
 	@Override

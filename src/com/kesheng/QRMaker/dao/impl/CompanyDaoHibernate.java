@@ -13,7 +13,7 @@ public class CompanyDaoHibernate extends HibernateDaoSupport implements CompanyD
 	}
 	
 	public int save(Company company){
-		return (int) getHibernateTemplate().save(company);
+		return (Integer) getHibernateTemplate().save(company);
 	}
 	
 	public void update(Company company){

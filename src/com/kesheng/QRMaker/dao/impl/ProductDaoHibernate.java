@@ -15,7 +15,7 @@ public class ProductDaoHibernate extends HibernateDaoSupport implements ProductD
 	@Override
 	public long save(Product product) {
 		// TODO Auto-generated method stub
-		return (long) getHibernateTemplate().save(product);
+		return (Integer) getHibernateTemplate().save(product);
 	}
 
 	@Override
