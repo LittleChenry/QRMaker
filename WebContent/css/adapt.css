@@ -35,13 +35,13 @@
 	width:1250px;
 	padding-left:10px;
 	padding-right:20px;
-	panding-top:10px;
+	padding-top:10px;
 	padding-bottom:0px;
 }
 
 .content-right {
 	margin-left:240px;
-	margin-bottom:40px;
+	margin-bottom:0px;
 }
 
 .login-title {
@@ -157,7 +157,6 @@ li.proposal.selected{
 	height:50px;
 	text-align:center;
 	background-color:#3C3D3E;
-	position:fixed;
     bottom:0;
     z-index:99999;
 }

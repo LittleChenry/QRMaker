@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	
 	<title>二维码生成平台</title>
-	
 	<!-- Bootstrap Core CSS -->
 	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
 	<!-- MetisMenu CSS -->
 	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	
 	<!-- Custom CSS -->
 	<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-	
 	<!-- Custom Fonts -->
 	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="../css/setting.css">
-	
 	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-	
 	<!-- 分步样式 -->
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/step.css">
-	<link href="../css/adapt.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../css/adapt.css">
 
 </head>
 
@@ -79,9 +70,9 @@
 									</li>
 									<li>
 										<a href="userinfo.html"> 账号信息</a>
-									</li>  
+									</li>
 								</ul>
-							</li> 
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -100,70 +91,70 @@
 						<form role="form" class="registration-form">
 							<fieldset>
 								<div class="line">
-									<label class="stepactivefirst col-sm-2"><i class="stepfontactive">①</i><span>选择农药种类</span></label>
-									<label class="stepinactivemid col-sm-2"><i class="stepfont">②</i><span>选择生产剂型</span></label>
-									<label class="col-sm-2 stepinactivemid"><i class="stepfont">③</i><span>制定生产计划</span></label>
-									<label class="col-sm-2 stepinactivemid"><i class="stepfont">④</i><span>编辑文本信息</span></label>
-									<label class="col-sm-2 stepinactivelast"><i class="stepfont">⑤</i><span>二维码预览</span></label>
+									<label class="stepactivefirst col-sm-2"><i class="stepfontactive">①</i><span>二维码编码</span></label>
+									<label class="stepinactivemid col-sm-2" onclick="skip(1,this)"><i class="stepfont">②</i><span>生产计划</span></label>
+									<label class="col-sm-2 stepinactivemid" onclick="skip(2,this)"><i class="stepfont">③</i><span>农药查询网址</span></label>
+									<label class="col-sm-2 stepinactivemid" onclick="skip(3,this)"><i class="stepfont">④</i><span>二维码样式</span></label>
+									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
-								<div class="form-bottom" id="div-pesticide">
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="pro_name"><i class="icon-beaker"></i> 农药名称：</label>
-										<div class="list-show-first col-sm-4">
-											<input type="text" name="name" id="name" class="form-control" placeholder="如 吡蚜酮" autocomplete="off">
-											<ul class="proposal-list" id="list_pesticide">
-											</ul>
+								<div class="form-area" id="div-pesticide">
+									<div class="col-sm-12 code">
+										<span>二维码示例编码：</span>
+										<span id="code_1">_</span>
+										<span id="code_2">______</span>
+										<span id="code_3">_</span>
+										<span id="code_4">___</span>
+										<span>000000000000000000001</span>
+									</div>
+									<div class="code_describe">
+										<span class="col-sm-2">类别代码</span>
+										<span class="col-sm-4">登记证号</span>
+										<span class="col-sm-2">生产类型</span>
+										<span class="col-sm-2">产品规格</span>
+										<span class="col-sm-2">产品编号</span>
+									</div>
+									<div class="code_num">
+										<div class="col-sm-2">
+											<input id="category" class="form-num">
+										</div>
+										<div class="col-sm-4">
+											<input id="register" class="form-num">
+										</div>
+										<div class="col-sm-2">
+											<input id="producetype" class="form-num">
+										</div>
+										<div class="col-sm-2">
+											<input id="productformat" class="form-num">
+										</div>
+										<div class="col-sm-2">
+											<input class="form-num" value="21位随机码" readonly="readonly">
 										</div>
 									</div>
-									<div class="form-group" id="div-code">
-										<label class="col-sm-2 control-label" for="pro_code"><i class="icon-list-ol"></i> 农药编号：</label>
-										<div class="list col-sm-4">
-											<input type="text" name="num" id="num" class="form-control" autocomplete="off">
-										</div>
-									</div>
 								</div>
-								<div class="btnarea-single col-sm-12">
+								<div class="btnarea col-sm-12">
 									<button type="button" class="btn btn-info btn-next" id="pesticide_next"><i class="icon-circle-arrow-right"></i> 下一步</button>
 								</div>
 							</fieldset>
 							
 							<fieldset>
 								<div class="line">
-									<label class="col-sm-2 stepactivefirst"><i class="stepfontactive">①</i><span>选择农药种类</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">②</i><span>选择生产剂型</span></label>
-									<label class="col-sm-2 stepinactivemid"><i class="stepfont">③</i><span>制定生产计划</span></label>
-									<label class="col-sm-2 stepinactivemid"><i class="stepfont">④</i><span>编辑文本信息</span></label>
-									<label class="col-sm-2 stepinactivelast"><i class="stepfont">⑤</i><span>二维码预览</span></label>
+									<label class="col-sm-2 stepactivefirst" onclick="skip(0,this)"><i class="stepfontactive">①</i><span>二维码编码</span></label>
+									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">②</i><span>生产计划</span></label>
+									<label class="col-sm-2 stepinactivemid" onclick="skip(2,this)"><i class="stepfont">③</i><span>农药查询网址</span></label>
+									<label class="col-sm-2 stepinactivemid" onclick="skip(3,this)"><i class="stepfont">④</i><span>二维码样式</span></label>
+									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
-								<div class="form-bottom">
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_norm"><i class="icon-tint"></i> 生产剂型：</label>
-										<div class="list-show-first col-sm-4">
-											<input type="text" name="type" id="type" class="form-control" placeholder="如 悬浮剂" autocomplete="off">
-											<ul class="proposal-list" id="list_type">
-											</ul>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_packagenum"><i class="icon-calendar"></i> 保质期：</label>
-										<div class="list col-sm-4"> 
-											<input class="span2 form-control" name="life" id="life" type="text" placeholder="如 2年" autocomplete="off">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_yield"><i class="icon-tag"></i> 规格：</label>
-										<div class="list-show-third col-sm-4">
-											<input class="form-control" name="specification" id="specification" type="text" placeholder="如 200ml/瓶" autocomplete="off">
-											<ul class="proposal-list" id="list_specification">
-											</ul>
-										</div>
+								<div class="form-area">
+									<div class="col-sm-12">
+										<span>产量：</span>
+										<input id="bottleNum" type="number">
 									</div>
 								</div>
 								<div class="btnarea col-sm-12">
-									<div class="btnprearea col-sm-6">
+									<div class="col-sm-3 col-sm-offset-3">
 										<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
 									</div>
-									<div class="btnnextarea col-sm-6">
+									<div class="col-sm-3">
 										<button type="button" class="btn btn-info btn-next" id="type_next"><i class="icon-circle-arrow-right"></i> 下一步</button>
 									</div>
 								</div>
@@ -171,40 +162,25 @@
 							
 							<fieldset>
 								<div class="line">
-									<label class="col-sm-2 stepactivefirst"><i class="stepfontactive">①</i><span>选择农药种类</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">②</i><span>选择生产剂型</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">③</i><span>制定生产计划</span></label>
-									<label class="col-sm-2 stepinactivemid"><i class="stepfont">④</i><span>编辑文本信息</span></label>
-									<label class="col-sm-2 stepinactivelast"><i class="stepfont">⑤</i><span>二维码预览</span></label>
+									<label class="col-sm-2 stepactivefirst" onclick="skip(0,this)"><i class="stepfontactive">①</i><span>二维码编码</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(1,this)"><i class="stepfontactive">②</i><span>生产计划</span></label>
+									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">③</i><span>农药查询网址</span></label>
+									<label class="col-sm-2 stepinactivemid" onclick="skip(3,this)"><i class="stepfont">④</i><span>二维码样式</span></label>
+									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
-								<div class="form-bottom">
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_norm"><i class="icon-bookmark"></i> 计划：</label>
-										<div class="list-show-first col-sm-4">
-											<input type="text" name="remark" id="remark" class="form-control" autocomplete="off">
-											<ul class="proposal-list" id="list_plan">
-											</ul>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_packagenum"><i class="icon-beaker"></i> 瓶码数量：</label>
-										<div class="list col-sm-4"> 
-											<input class="span2 form-control" name="btnum" id="btnum" type="number" placeholder="" autocomplete="off">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="plan_yield"><i class="icon-inbox"></i> 箱码数量：</label>
-										<div class="list col-sm-4">
-											<input class="form-control" name="bxnum" id="bxnum" type="number" placeholder="" autocomplete="off">
-											<span class="tip">注：瓶码与箱码均按实际数量的105%生成</span>
+								<div class="form-area">
+									<div class="col-sm-12">
+										<span class="col-sm-4 textarea_text">查询网址：</span>
+										<div class="col-sm-8">
+											<textarea id="scanurl" class="form-control" rows="4"></textarea>
 										</div>
 									</div>
 								</div>
 								<div class="btnarea col-sm-12">
-									<div class="btnprearea col-sm-6">
+									<div class="col-sm-3 col-sm-offset-3">
 										<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
 									</div>
-									<div class="btnnextarea col-sm-6">
+									<div class="col-sm-3">
 										<button type="button" class="btn btn-info btn-next" id="plan_next"><i class="icon-circle-arrow-right"></i> 下一步</button>
 									</div>
 								</div>
@@ -212,61 +188,52 @@
 							
 							<fieldset>
 								<div class="line">
-									<label class="col-sm-2 stepactivefirst"><i class="stepfontactive">①</i><span>选择农药种类</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">②</i><span>选择生产剂型</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">③</i><span>制定生产计划</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">④</i><span>编辑文本信息</span></label>
-									<label class="col-sm-2 stepinactivelast"><i class="stepfont">⑤</i><span>二维码预览</span></label>
+									<label class="col-sm-2 stepactivefirst" onclick="skip(0,this)"><i class="stepfontactive">①</i><span>二维码编码</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(1,this)"><i class="stepfontactive">②</i><span>生产计划</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(2,this)"><i class="stepfontactive">③</i><span>农药查询网址</span></label>
+									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">④</i><span>二维码样式</span></label>
+									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
-								<div class="form-bottom">
-									<div class="form-group form-horizontal">
-										<label class="col-sm-2 control-label" for="qrpicture_fixtext"><i class="icon-link"></i> 查询链接：</label>
-										<div class="col-sm-4"> 
-											<textarea id="fixedtext" name="fixedtext" class="form-control" placeholder="打开该链接输入二维码序列号查询农药信息"></textarea>
-										</div>
+								<div class="form-area">
+									<div class="form-group">
+										
 									</div>
-								
-									<div class="form-group form-horizontal">
-										<label class="col-sm-2 control-label" for="qrpicture_pagepath"><i class="icon-link"></i> 网页链接：</label>
-										<div class="col-sm-4"> 
-											<textarea id="pagepath" name="pagepath" class="form-control" placeholder="扫描二维码跳转网页网址"></textarea>
-										</div>
-									</div> 
-									<div class="btnarea-text col-sm-6">
-										<div class="btnprearea col-sm-6">
-											<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
-										</div>
-										<div class="btnnextarea col-sm-6">
-											<button type="button" class="btn btn-info btn-next"><i class="icon-circle-arrow-right"></i> 下一步</button>
-										</div>
+								</div>
+								<div class="btnarea col-sm-12">
+									<div class="col-sm-3 col-sm-offset-3">
+										<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
+									</div>
+									<div class="col-sm-3">
+										<button type="button" class="btn btn-info btn-next"><i class="icon-circle-arrow-right"></i> 下一步</button>
 									</div>
 								</div>
 							</fieldset>
 							
 							<fieldset>
 								<div class="line">
-									<label class="col-sm-2 stepactivefirst"><i class="stepfontactive">①</i><span>选择农药种类</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">②</i><span>选择生产剂型</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">③</i><span>制定生产计划</span></label>
-									<label class="col-sm-2 stepactivemid"><i class="stepfontactive">④</i><span>编辑文本信息</span></label>
+									<label class="col-sm-2 stepactivefirst" onclick="skip(0,this)"><i class="stepfontactive">①</i><span>二维码编码</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(1,this)"><i class="stepfontactive">②</i><span>生产计划</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(2,this)"><i class="stepfontactive">③</i><span>农药查询网址</span></label>
+									<label class="col-sm-2 stepactivemid" onclick="skip(3,this)"><i class="stepfontactive">④</i><span>二维码样式</span></label>
 									<label class="col-sm-2 stepactivelast"><i class="stepfontactive">⑤</i><span>二维码预览</span></label>
 								</div>
-								<div class="col-sm-9 form-bottom-pic">
+								<div class="form-area">
 									<div class="form-group">
 										<p class="qrpic">二维码图片预览</p>
 										<img src="../img/QRpic.png">
 									</div>
 								</div>
-								<div class="form-bottom">
-									<div class="btnarea-final col-sm-6">
-										<div class="btnprearea col-sm-6">
-											<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
-										</div>
-										<div class="btnnextarea col-sm-6">
-											<a href="#" data-toggle="modal" data-target="#develop">
-											<button id="createQR" type="button" class="btn btn-info  btn-last"><i class="icon-qrcode"></i> 预览信息</button>
-											</a>
-										</div>
+								<div class="form-area">
+									
+								</div>
+								<div class="btnarea col-sm-12">
+									<div class="col-sm-3 col-sm-offset-3">
+										<button type="button" class="btn btn-success btn-previous">上一步 <i class="icon-circle-arrow-left"></i></button>
+									</div>
+									<div class="col-sm-3">
+										<a href="#" data-toggle="modal" data-target="#develop">
+										<button id="createQR" type="button" class="btn btn-info  btn-last"><i class="icon-qrcode"></i> 预览信息</button>
+										</a>
 									</div>
 								</div>
 							</fieldset>
@@ -372,24 +339,20 @@
 	</div>
 	
 	<div class="foot">
-		<footer class="ajust-lfooter" id="lfooter">&copy;copyright by Priscilla</footer>
+		<footer class="ajust-lfooter" id="lfooter">Copyright © 2017-2018</footer>
 	</div>
 	
 	<!-- jQuery -->
 	<script src="../vendor/jquery/jquery.min.js"></script>
-	
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	
 	<!-- Metis Menu Plugin JavaScript -->
 	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-	
 	<!-- Custom Theme JavaScript -->
 	<script src="../dist/js/sb-admin-2.js"></script>
 	<!-- 分步订单 -->
 	<script src="../js/scripts.js"></script>
 	<script src="../js/jquery.backstretch.min.js"></script>
-	<script src="../js/addorder.js"></script>
 	
 </body>
 

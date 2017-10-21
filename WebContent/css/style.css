@@ -23,15 +23,6 @@ textarea.form-control,{
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-textarea, 
-textarea.form-control {
-	padding-top: 3px;
-    /*height: 90px;*/
-	padding-bottom: 10px;
-	line-height: 1.2em;
-    height: 3em;
-}
-
 #page-wrapper input[type="text"]:focus, 
 textarea:focus, 
 textarea.form-control:focus,
@@ -132,10 +123,25 @@ img { max-width: 100%; }
 	margin-top: 0;
 	font-weight: bolder;
 }
-.form-bottom {
+.form-area {
 	padding-top: 20px;
-	padding-left: 200px;
+	text-align: center;
+	width: 80%;
+	margin: auto;
 	z-index:1
+}
+
+.form-num {
+	width: 100%;
+	text-align: center;
+}
+
+.textarea_text {
+	line-height: 5;
+}
+
+.code {
+	padding-bottom: 40px;
 }
 
 .form-bottom-pic {

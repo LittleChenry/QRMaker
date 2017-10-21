@@ -157,7 +157,7 @@ window.onload = function(){
 	
 	//获取农药类型信息
 	$("#pesticide_next").click(function(){
-		$.ajax({
+		/*$.ajax({
 	        type:"post",
 	        async:true,
 	        url:"../ShowType.action",
@@ -179,7 +179,7 @@ window.onload = function(){
 	        error:function(){
 	            alert("系统异常，请稍后重试！");
 	        }
-	    });
+	    });*/
 	});
 	
 	//农药类型下拉显示
@@ -295,7 +295,7 @@ window.onload = function(){
 	
 	//获取规格信息
 	$("#pesticide_next").click(function(){
-		$.ajax({
+		/*$.ajax({
 	        type:"post",
 	        async:true,
 	        url:"../ShowSpecification.action",
@@ -314,7 +314,7 @@ window.onload = function(){
 	        error:function(){
 	            alert("系统异常，请稍后重试！");
 	        }
-	    });
+	    });*/
 		
 		//规格信息下拉显示
 		$(function(){
