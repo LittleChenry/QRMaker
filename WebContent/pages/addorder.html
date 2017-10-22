@@ -257,12 +257,12 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button class="close" data-dismiss="modal"><span>&times;</span></button>
-					<h3 class="modal-title">二维码信息预览</h3>
+					<h4 class="modal-title">二维码信息预览</h4>
 				</div>
 				<div class="modal-body">
 					<form id="create_form" role="form">
 						<fieldset>
-							<table class="table table-bordered col-sm-12">
+							<table class="table table-bordered col-sm-10">
 								<tbody>
 									<tr>
 										<td style="width:30%;">类别代码</td>
@@ -298,16 +298,12 @@
 									</tr>
 								</tbody>
 							</table>
-							<div class="btnarea col-sm-12">
-								<div class="col-sm-4 col-sm-offset-2">
-									<input data-dismiss="modal" id="back" type="button" value="返回修改" class="btn btn-primary">
-								</div>
-								<div class="col-sm-4">
-									<input id="create_online" type="button" value="在线生成" class="btn btn-primary" data-dismiss="modal">
-								</div>
-							</div>
 						</fieldset>
 					</form> 
+				</div>
+				<div class="modal-footer">
+					<button id="back" class="btn btn-success" type="button" data-dismiss="modal" >返回修改</button>
+					<button id="create_online" class="btn btn-primary" type="button" data-dismiss="modal">在线生成</button>
 				</div>
 			</div>
 		</div> 
