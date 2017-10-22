@@ -8,16 +8,16 @@
 	<meta name="author" content="">
 	<title>二维码生成平台</title>
 	<!-- Bootstrap Core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- MetisMenu CSS -->
-	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+	<link href="../plugins/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
 	<!-- Custom Fonts -->
-	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Main -->
 	<link rel="stylesheet" type="text/css" href="../css/setting.css">
-	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-	<!-- 分步样式 -->
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/step.css">
 	<link rel="stylesheet" href="../css/adapt.css">
@@ -113,15 +113,15 @@
 										<span class="col-sm-2">产品规格</span>
 										<span class="col-sm-2">产品编号</span>
 									</div>
-									<div class="code_num">
+									<div class="code_num text_area">
 										<div class="col-sm-2">
-											<input id="category" class="form-num">
+											<input id="category" class="form-num" readonly="readonly">
 										</div>
 										<div class="col-sm-4">
 											<input id="register" class="form-num">
 										</div>
 										<div class="col-sm-2">
-											<input id="producetype" class="form-num">
+											<input id="producetype" class="form-num" readonly="readonly">
 										</div>
 										<div class="col-sm-2">
 											<input id="productformat" class="form-num">
@@ -169,10 +169,14 @@
 									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
 								<div class="form-area">
+									<div class="col-sm-12 url">
+										<span>URL：</span>
+										<span id="fullURL"></span>
+									</div>
 									<div class="col-sm-12">
-										<span class="col-sm-2 col-sm-offset-1 textarea_text">查询网址：</span>
-										<div class="col-sm-8">
-											<textarea id="scanurl" class="form-textarea" rows="4"></textarea>
+										<span class="col-sm-2">查询网址：</span>
+										<div class="col-sm-10 text_area">
+											<input id="scanurl" class="form-text"/>
 										</div>
 									</div>
 								</div>
@@ -195,8 +199,13 @@
 									<label class="col-sm-2 stepinactivelast" onclick="skip(4,this)"><i class="stepfont">⑤</i><span>二维码预览</span></label>
 								</div>
 								<div class="form-area">
-									<div class="form-group">
-										
+									<div class="col-sm-6">
+										<span>二维码大小：</span>
+										<input id="pic_size" class="form-input" readonly="readonly">
+									</div>
+									<div class="col-sm-6">
+										<span>图片格式：</span>
+										<input id="pic_format" class="form-input" readonly="readonly">
 									</div>
 								</div>
 								<div class="btnarea col-sm-12">
@@ -253,61 +262,48 @@
 				<div class="modal-body">
 					<form id="create_form" role="form">
 						<fieldset>
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_name">农药名称：</label>
-								<div class="col-sm-9">
-									<input type="text" name="name" id="confirm_name" class="form-control" >
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_num">农药编号：</label>
-								<div class="col-sm-9">
-									<input type="text" name="num" id="confirm_num" class="form-control" >
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="pro_type">生产剂型：</label>
-								<div class="col-sm-9">
-									<input type="text" name="type" id="confirm_type" class="form-control" >
-								</div>  
-							</div> 
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_spe">农药规格：</label>
-								<div class="col-sm-9">
-									<input type="text" name="spe" id="confirm_spe" class="form-control" >
-								</div>
-							</div> 
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_btnum">瓶码数量：</label>
-								<div class="col-sm-9 input-append"> 
-									<input class="span2 form-control" name="btnum" id="confirm_btnum" type="number" >
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_bxnum">箱码数量：</label>
-								<div class="col-sm-9">
-									<input class="form-control" name="bxnum" id="confirm_bxnum" type="number" >
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_fixtext">固定文本：</label>
-								<div class="col-sm-9"> 
-									<textarea id="confirm_fixedtext" name="fixedtext" class="form-control" ></textarea>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label" for="plan_pagepath">网页链接：</label>
-								<div class="col-sm-9"> 
-									<textarea id="confirm_pagepath" name="pagepath" class="form-control" ></textarea>
-								</div>
-							</div> 
-							<div class="btnconfirm col-sm-12">
-								<div class="form-group col-sm-6">
-									<input id="create_online" type="button" value="在线生成" class="btn btn-primary" data-dismiss="modal">
-								</div>
-								<div class="form-group col-sm-6">
+							<table class="table table-bordered col-sm-12">
+								<tbody>
+									<tr>
+										<td style="width:30%;">类别代码</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>登记证号</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>生产类型</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>产品规格</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>产量</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>查询网址</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>二维码大小</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>图片格式</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btnarea col-sm-12">
+								<div class="col-sm-4 col-sm-offset-2">
 									<input data-dismiss="modal" id="back" type="button" value="返回修改" class="btn btn-primary">
+								</div>
+								<div class="col-sm-4">
+									<input id="create_online" type="button" value="在线生成" class="btn btn-primary" data-dismiss="modal">
 								</div>
 							</div>
 						</fieldset>
@@ -340,16 +336,17 @@
 	</div>
 	
 	<!-- jQuery -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
 	<!-- Custom Theme JavaScript -->
-	<script src="../dist/js/sb-admin-2.js"></script>
+	<script src="../plugins/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
 	<!-- 分步订单 -->
 	<script src="../js/fade.js"></script>
 	<script src="../js/main.js"></script>
+	<script src="../js/addorder.js"></script>
 	<script src="../js/jquery.backstretch.min.js"></script>
 	
 </body>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +11,16 @@
 	<title>二维码生成平台</title>
 	
 	<!-- Bootstrap Core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- MetisMenu CSS -->
-	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-	
+	<link href="../plugins/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
 	<!-- Custom Fonts -->
-	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="../plugins/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+	<!-- Main -->
 	<link rel="stylesheet" type="text/css" href="../css/setting.css">
-	
-	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-	
-	<!-- 分步样式 -->
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/step.css">
 	<link href="../css/adapt.css" rel="stylesheet" type="text/css">
@@ -98,83 +92,79 @@
 							</div>
 	                    </div>
 						<div class="content-right-main col-sm-12">
-						<form id="change-info" class="info-form" style="display: block;">
-					        <fieldset>
-					            <div class="info-form-group form-group">   
-					              <label class="col-sm-4 control-label" for="com_id">企业代码：</label>
-					              <div class="col-sm-8">
-					              <input type="text" name="id" id="com_id" class="form-control" readonly="readonly">
-					              </div>
-					              </div>
-					            <div class="info-form-group form-group">
-					              <label class="col-sm-4 control-label" for="com_name">公司名称：</label>
-					              <div class="col-sm-8">
-					              <input type="text" name="name" id="com_name" class="form-control" readonly="readonly">
-					              </div>
-					             </div>
-					            <div class="info-form-group form-group">
-					             <label class="col-sm-4 control-label" for="com_code">政府注册号：</label>
-					             <div class="col-sm-8">
-					             <input type="text" name="code" id="com_code" class="form-control" readonly="readonly">
-					            </div>
-					            </div>
-					            <div class="info-form-group form-group">
-					             <label class="col-sm-4 control-label" for="com_admin">用户名：</label>
-					             <div class="col-sm-8">
-					             <input type="text" name="admin" id="com_admin" class="form-control" readonly="readonly">
-					            </div>
-					            </div>
-					            <div class="info-form-group form-group">  
-					               <label class="col-sm-4 control-label" for="com_email">邮箱：</label>
-					               <div class="col-sm-8">
-					               <input type="email" name="email" id="com_email" class="form-control" readonly="readonly">
-					              </div>  
-					              </div>
-					              
-					              <br>
-					              <div class="info-btnarea btnarea col-sm-5">
-									<div class="btnprearea col-sm-6">
-										<button type="button" id="edit_info" class="btn btn-info"><i class="icon-edit"> 编辑 </i></button>
+							<form id="change-info" class="info-form" style="display: block;">
+								<fieldset>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_id">企业代码：</label>
+										<div class="col-sm-4">
+											<input type="text" name="id" id="com_id" class="form-text" readonly="readonly">
+										</div>
 									</div>
-									<div class="btnnextarea col-sm-6">
-										<button type="button" id="save_info" class="btn btn-info" disabled="disabled"> <i class="icon-save"> 保存</i></button>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_name">公司名称：</label>
+										<div class="col-sm-4">
+											<input type="text" name="name" id="com_name" class="form-text" readonly="readonly">
+										</div>
 									</div>
-								</div>
-					            </fieldset>
-					            
-					        </form>
-						  <form id="change-password" class="info-form" style="display: none;">
-					        <fieldset>
-					            <div class="info-form-group form-group">
-					             <label class="col-sm-4 control-label" for="com_pass">旧密码：</label>
-					             <div class="col-sm-8">
-					             <input type="password" name="oldpassword" id="oldpassword" class="form-control">
-					            </div>
-					            </div>
-					            <div class="info-form-group form-group">
-					              <label class="col-sm-4 control-label" for="com_pass2">新密码：</label>
-					              <div class="col-sm-8">
-					              <input type="password" name="newpassword" id="newpassword" class="form-control">
-					              </div>
-					             </div>
-					            <div class="info-form-group form-group">   
-					              <label class="col-sm-4 control-label" for="com_pass2">确认新密码：</label>
-					              <div class="col-sm-8">
-					              <input type="password" name="newpassword2" id="newpassword2" class="form-control">
-					              </div>
-					              </div>
-					              <br>
-					
-								<div class="info-btnarea btnarea col-sm-5">
-									<div class="btnprearea col-sm-6">
-										<button type="reset" id="cancel_passchange" class="btn btn-info" disabled="disabled"><i class="icon-remove"> 取消 </i></button>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_code">政府注册号：</label>
+										<div class="col-sm-4">
+											<input type="text" name="code" id="com_code" class="form-text" readonly="readonly">
+										</div>
 									</div>
-									<div class="btnnextarea col-sm-6">
-										<button type="button" id="save_passchange" class="btn btn-info" disabled="disabled"><i class="icon-save"> 保存 </i></button>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_admin">用户名：</label>
+										<div class="col-sm-4">
+											<input type="text" name="admin" id="com_admin" class="form-text" readonly="readonly">
+										</div>
 									</div>
-								</div>
-					             </fieldset>
-					        </form>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_email">邮箱：</label>
+										<div class="col-sm-4">
+											<input type="email" name="email" id="com_email" class="form-text" readonly="readonly">
+										</div>
+									</div>
+									<div class="btnarea col-sm-12">
+										<div class="col-sm-3 col-sm-offset-3">
+											<button type="button" id="edit_info" class="btn btn-info"><i class="icon-edit"> 编辑 </i></button>
+										</div>
+										<div class="col-sm-3">
+											<button type="button" id="save_info" class="btn btn-info" disabled="disabled"> <i class="icon-save"> 保存</i></button>
+										</div>
+									</div>
+								</fieldset>
+
+							</form>
+							<form id="change-password" class="info-form" style="display: none;">
+								<fieldset>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_pass">旧密码：</label>
+										<div class="col-sm-4">
+											<input type="password" name="oldpassword" id="oldpassword" class="form-text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_pass2">新密码：</label>
+										<div class="col-sm-4">
+											<input type="password" name="newpassword" id="newpassword" class="form-text">
+										</div>
+									</div>
+									<div class="form-group">   
+										<label class="col-sm-2 col-sm-offset-3 control-label" for="com_pass2">确认新密码：</label>
+										<div class="col-sm-4">
+											<input type="password" name="newpassword2" id="newpassword2" class="form-text">
+										</div>
+									</div>
+									<div class="btnarea col-sm-12">
+										<div class="col-sm-3 col-sm-offset-3">
+											<button type="reset" id="cancel_passchange" class="btn btn-info" disabled="disabled"><i class="icon-remove"> 取消 </i></button>
+										</div>
+										<div class="col-sm-3">
+											<button type="button" id="save_passchange" class="btn btn-info" disabled="disabled"><i class="icon-save"> 保存 </i></button>
+										</div>
+									</div>
+								</fieldset>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -183,24 +173,20 @@
 	</div>
 	
 	<div class="foot">
-		<footer class="ajust-lfooter" id="lfooter">&copy;copyright by Priscilla</footer>
+		<footer class="ajust-lfooter" id="lfooter">Copyright © 2017-2018</footer>
 	</div>
 	
 	<!-- jQuery -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
-	
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-	
+	<script src="../plugins/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
 	<!-- Custom Theme JavaScript -->
-	<script src="../dist/js/sb-admin-2.js"></script>
-	
+	<script src="../plugins/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+	<!-- Main -->
 	<script src="../js/switch.js"></script>
 	<script src="../js/userinfo.js"></script>
-	<script src="../js/test.js"></script>
 	
 </body>
 

@@ -126,21 +126,46 @@ img { max-width: 100%; }
 .form-area {
 	padding-top: 20px;
 	text-align: center;
-	width: 80%;
+	width: 90%;
 	margin: auto;
 	z-index:1
 }
 
-.form-textarea {
-	display: block;
-    width: 100%;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
+.text_area {
+	font-size: 16px;
+}
+
+.form-text {
+	width: 100%;
+	padding: 0px 5px;
+}
+
+.form-input {
+	text-align: center;
+}
+
+.visit_a {
+    color: #3879D9;
+}
+
+.pickerarea {
+	position: absolute;
+    float: left;
     background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
+    border: 1px solid #AAAAAA;
+    box-shadow: 2px 2px 1px #888888;
+    z-index: 2;
+}
+
+.auto_ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+}
+
+.auto_list {
+	padding: 0px 5px;
 }
 
 .qrpic {
@@ -152,12 +177,13 @@ img { max-width: 100%; }
 	text-align: center;
 }
 
-.textarea_text {
-	line-height: 5;
-}
-
 .code {
 	padding-bottom: 40px;
+}
+
+.url {
+	padding-bottom: 40px;
+	font-size: 15px;
 }
 
 .form-bottom-pic {
