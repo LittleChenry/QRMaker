@@ -1,47 +1,24 @@
-body {
-	background-color: #FFFFFF;
-}
-img {
-	float: left;
-}
-.head-right {
-	font-weight: 900;
-	color: #AEC919;
-	padding-left: 6px;
-}
-.login-panel {
-	padding-top:100px;
-	/*padding-left:40px;*/
-}
-.btn,.btn-small,input[type="button"] {
-	background-color: #EEEEEE;
-	border-radius: 4px;
-	height: 36px;
-	padding: 2px 7px 2px 7px;
-	color: blue;
-}
-.veryfy-adjust {
-	margin:auto;
-	width:60%;
-}
-
-.verify-button {
-	padding-left:194px;
-	padding-top:20px;
+.title {
+	font-size: 30px;
+	font-weight: 300;
 }
 
 .verfy-title {
-	padding-left:84px;
-}
-
-.title {
-	padding-top:5px;
+	font-size: 35px;
+	font-weight: 30px;
+	margin-bottom: 20px; 
+	text-align: center;
 }
 
 .img {
-	height:58px;
+	height:35px;
 }
 
 .verify-button {
-	width:70px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.content {
+	margin-top: 100px;
 }

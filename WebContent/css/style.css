@@ -76,7 +76,7 @@ textarea.form-control:focus{
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 300;
-    color: #555555;
+    color: #262626;
     line-height: 30px;
 }
 
@@ -214,6 +214,9 @@ form.registration-form fieldset {
 	margin-left: -5%;
 }
 
+.table-samecol {
+	table-layout: fixed;
+}
 
 
 
